@@ -16,6 +16,7 @@ obj =
 # 函数
 func = ->
   obj.a + num
+console.log("func() result = " + func())
 
 # 函数默认值
 func2 = (name, age = 20) ->
@@ -32,12 +33,42 @@ else if str is 'abc'
   str += 'str'
 
 # 区间判断
-isStudent = 10 < aqe < 25
+isStudent = 10 < age < 25
 
 # 数组
-arr = {1, 3, 5, 7, 9}
+arr = [1, 3, 5, 7, 9]
+console.log("遍历数组:")
 for item in arr
   console.log(item)
 
 # while
-console.log(arr.pop()) while arr.length() > 0
+console.log("while遍历：")
+console.log(arr.pop()) while arr.length > 0
+
+# 推导
+obj2 =
+  key: 'abd'
+  value: 'def'
+  class: 'This is class'
+console.log key, value for key, value of obj2 when key isnt 'key'
+
+# 存在处理
+nullStr = null
+if nullStr?
+  console.log "nullStr is null"
+
+# 如果null或者undefined， 那么赋值
+str?= "AA"
+
+# 内嵌js
+func3 = `function abc(){console.log("This is func3")}`
+func3()
+
+# try
+###try
+  zzz
+catch e
+  console.log "打印错误信息"
+  console.log e
+finally
+  console.log "final"###

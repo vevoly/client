@@ -3,7 +3,7 @@
 /* 变量赋值 */
 
 (function() {
-  var age, arr, func, func2, i, isRight, isStudent, item, len, num, obj, str;
+  var age, arr, func, func2, func3, i, isRight, isStudent, item, key, len, nullStr, num, obj, obj2, str, value;
 
   num = 1;
 
@@ -26,6 +26,8 @@
     return obj.a + num;
   };
 
+  console.log("func() result = " + func());
+
   func2 = function(name, age) {
     if (age == null) {
       age = 20;
@@ -47,22 +49,57 @@
 
   isStudent = (10 < age && age < 25);
 
-  arr = {
-    1: 1,
-    3: 3,
-    5: 5,
-    7: 7,
-    9: 9
-  };
+  arr = [1, 3, 5, 7, 9];
+
+  console.log("遍历数组:");
 
   for (i = 0, len = arr.length; i < len; i++) {
     item = arr[i];
     console.log(item);
   }
 
-  while (arr.length() > 0) {
+  console.log("while遍历：");
+
+  while (arr.length > 0) {
     console.log(arr.pop());
   }
+
+  obj2 = {
+    key: 'abd',
+    value: 'def',
+    "class": 'This is class'
+  };
+
+  for (key in obj2) {
+    value = obj2[key];
+    if (key !== 'key') {
+      console.log(key, value);
+    }
+  }
+
+  nullStr = null;
+
+  if (nullStr != null) {
+    console.log("nullStr is null");
+  }
+
+  if (str == null) {
+    str = "AA";
+  }
+
+  func3 = function abc(){console.log("This is func3")};
+
+  func3();
+
+
+  /*try
+    zzz
+  catch e
+    console.log "打印错误信息"
+    console.log e
+  finally
+    console.log "final"
+   */
 
 }).call(this);
 
