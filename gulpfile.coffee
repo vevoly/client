@@ -14,6 +14,8 @@ minifyCss = require('gulp-minify-css')
 #unCss = require('gulp-uncss')
 # 引入浏览器同步插件
 browserSync = require('browser-sync').create()
+# 引入连接插件
+concat = require('gulp-concat')
 
 # 默认任务
 gulp.task('default', (callback) ->
@@ -52,8 +54,8 @@ gulp.task('miniJs', ->
 gulp.task('miniCss', ->
     gulp.src('./src/**/*.css')
     .pipe(minifyCss())
-    #.pipe(unCss())
-    .pipe(gulp.dest('./dist/'))
+    .pipe(concat('app.css', {newLine: '\n\n'}))
+    .pipe(gulp.dest('./dist/assets/css/'))
 )
 
 # 合并文件

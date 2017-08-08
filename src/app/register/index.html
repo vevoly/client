@@ -3,21 +3,22 @@
     <div class="login-split"></div>
     <div class="login-right">
         <fieldset>
-            <legend>登录</legend>
+            <legend>注册新用户</legend>
             <div>
                 <label for="">账号：</label>
-                <input type="text" placeholder="请输入账号">
+                <input type="text" ng-model="registerEntity.username" placeholder="请输入账号">
             </div>
             <div>
                 <label for="">密码：</label>
-                <input type="text" placeholder="请输入密码">
+                <input type="password" ng-model="registerEntity.password" placeholder="请输入密码">
             </div>
             <div>
-                <label for=""><input type="checkbox" />记住我</label>
+                <label for="">确认密码：</label>
+                <input type="password" ng-model="registerEntity.password2" placeholder="请再次输入密码">
             </div>
             <div>
-                <button>登录</button>
-                <span>还没有账户？ <a href="/register">注册</a></span>
+                <button ng-click="doRegister()">注册</button>
+                <span>已有账户？ <a href="#!/login">立即登录</a></span>
             </div>
         </fieldset>
 
