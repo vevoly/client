@@ -1,26 +1,34 @@
-<div class="login-container">
-    <div class="login-left"></div>
-    <div class="login-split"></div>
-    <div class="login-right">
-        <fieldset>
-            <legend>注册新用户</legend>
-            <div>
-                <label for="">账号：</label>
-                <input type="text" ng-model="registerEntity.username" placeholder="请输入账号">
-            </div>
-            <div>
-                <label for="">密码：</label>
-                <input type="password" ng-model="registerEntity.password" placeholder="请输入密码">
-            </div>
-            <div>
-                <label for="">确认密码：</label>
-                <input type="password" ng-model="registerEntity.password2" placeholder="请再次输入密码">
-            </div>
-            <div>
-                <button ng-click="doRegister()">注册</button>
-                <span>已有账户？ <a href="#!/login">立即登录</a></span>
-            </div>
-        </fieldset>
 
+<div class="row login-box">
+    <div class="col-md-4 col-md-offset-4">
+        <div class="panel panel-info">
+            <div class="panel-heading">
+                欢迎注册任务管理系统
+            </div>
+            <div class="panel-body">
+                <form action="">
+                    <div class="form-group">
+                        <label for="">账户：</label>
+                        <input type="text" class="form-control" ng-model="registerEntity.username" placeholder="请输入账号">
+                    </div>
+                    <div class="form-group">
+                        <label for="">密码：</label>
+                        <input type="password" class="form-control" ng-model="registerEntity.password" placeholder="请输入密码">
+                    </div>
+                    <div class="form-group">
+                        <label for="">确认密码：</label>
+                        <input type="password" class="form-control" ng-model="registerEntity.password2" placeholder="请再次输入密码">
+                    </div>
+                    <div class="form-group">
+                        <div class="col-md-4 col-md-offset-4">
+                            <button class="btn btn-primary" ng-click="doRegister()">注册</button>
+                        </div>
+                        <div class="login-reg-box">
+                            <span>已经有账户？ <a href="#!/login">登录</a></span>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
     </div>
 </div>
