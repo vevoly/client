@@ -16,6 +16,11 @@ minifyCss = require('gulp-minify-css')
 browserSync = require('browser-sync').create()
 # 引入连接插件
 concat = require('gulp-concat')
+# 引入fs
+fs = require('fs')
+
+# 获取参数
+assets = JSON.parse(fs.readFileSync('assets.json'))
 
 # 默认任务
 gulp.task('default', (callback) ->
@@ -29,7 +34,11 @@ gulp.task('default', (callback) ->
 
 # 任务分组 --> 构建
 gulp.task('build', (callback) ->
-    runSequence(['copy', 'miniJs', 'miniCss'], callback)
+    ###
+        1. 资源文件处理
+        2. app资源文件处理、复制
+    ###
+    runSequence(['assetsJs', 'assetsCss', 'assetsFonts'], ['appJs', 'appCss', 'copyHtml'], callback)
 )
 
 # 清空目录
@@ -43,27 +52,54 @@ gulp.task('copy', ->
     .pipe(gulp.dest('./dist/'))
 )
 
-# 压缩js
-gulp.task('miniJs', ->
-    gulp.src('./src/**/*.js')
-    .pipe(uglify())
+# 复制
+gulp.task('copyHtml', ->
+    gulp.src('./src/**/*.*')
     .pipe(gulp.dest('./dist/'))
 )
 
-# 压缩css
-gulp.task('miniCss', ->
-    gulp.src('./src/**/*.css')
-    .pipe(minifyCss())
+# 资源文件处理-打包js
+gulp.task('assetsJs', ->
+    gulp.src(assets.assetsJs)
+    .pipe(concat('assets.js', {newLine:';\n'}))
+    .pipe(gulp.dest('./dist/assets/js/'))
+)
+
+# 资源文件处理-打包css
+gulp.task('assetsCss', ->
+    gulp.src(assets.assetsCss)
+    .pipe(concat('assets.css', {newLine:'\n\n'}))
+    .pipe(gulp.dest('./dist/assets/css/'))
+)
+
+# 资源文件处理-打包字体
+gulp.task('assetsFonts', ->
+    gulp.src(assets.assetsFonts)
+    .pipe(gulp.dest('./dist/assets/fonts/'))
+)
+
+
+# app文件处理-压缩js
+gulp.task('appJs', ->
+    gulp.src(assets.appJs)
+    .pipe(concat('app.js', {newLine:';\n'}))
+    .pipe(gulp.dest('./dist/assets/js/'))
+)
+
+# app文件处理-压缩css
+gulp.task('appCss', ->
+    gulp.src(assets.appCss)
+    #.pipe(minifyCss())
     .pipe(concat('app.css', {newLine: '\n\n'}))
     .pipe(gulp.dest('./dist/assets/css/'))
 )
 
 # 合并文件
-gulp.task('concat', ->
+###gulp.task('concat', ->
     gulp.src('./src/*.js')
     .pipe(concat('all.js', {newLine: ';\n'}))
     .pipe(gulp.dest('./dist/'))
-)
+)###
 
 # 同步浏览器
 gulp.task('serve', ->
