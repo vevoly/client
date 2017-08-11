@@ -21,6 +21,7 @@
   },
   "dependencies": {
     "browser-sync": "^2.18.13",
+    "cors": "^2.8.4",
     "del": "^3.0.0",
     "run-sequence": "^2.1.0"
   }

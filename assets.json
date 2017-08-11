@@ -14,10 +14,14 @@
     ],
     "appJs" : [
         "./src/index.js",
+        "./src/services/**/*.js",
         "./src/app/**/*.js"
     ],
     "appCss" : [
         "./src/css/*.css"
+    ],
+    "configJs" : [
+        "./src/config/config.js"
     ]
 
 }

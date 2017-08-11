@@ -2,12 +2,14 @@
   <library name="Generated files" type="javaScript">
     <properties>
       <sourceFilesUrls>
+        <item url="file://$PROJECT_DIR$/src/config/config.js" />
         <item url="file://$PROJECT_DIR$/src/app/login/loginCtrl.js" />
         <item url="file://$PROJECT_DIR$/test/test1.js" />
         <item url="file://$PROJECT_DIR$/src/index.js" />
         <item url="file://$PROJECT_DIR$/test/test2.js" />
         <item url="file://$PROJECT_DIR$/src/app/register/registerCtrl.js" />
         <item url="file://$PROJECT_DIR$/src/app/index/indexCtrl.js" />
+        <item url="file://$PROJECT_DIR$/src/services/tmsUtil.js" />
         <item url="file://$PROJECT_DIR$/gulpfile.js" />
       </sourceFilesUrls>
     </properties>
@@ -16,12 +18,14 @@
       <root url="file://$PROJECT_DIR$/dist/test/test2.js" />
       <root url="file://$PROJECT_DIR$/dist/test/test1.js" />
       <root url="file://$PROJECT_DIR$/dist/test/test2.js" />
+      <root url="file://$PROJECT_DIR$/src/config/config.js" />
       <root url="file://$PROJECT_DIR$/src/app/login/loginCtrl.js" />
       <root url="file://$PROJECT_DIR$/test/test1.js" />
       <root url="file://$PROJECT_DIR$/src/index.js" />
       <root url="file://$PROJECT_DIR$/test/test2.js" />
       <root url="file://$PROJECT_DIR$/src/app/register/registerCtrl.js" />
       <root url="file://$PROJECT_DIR$/src/app/index/indexCtrl.js" />
+      <root url="file://$PROJECT_DIR$/src/services/tmsUtil.js" />
       <root url="file://$PROJECT_DIR$/gulpfile.js" />
     </CLASSES>
     <SOURCES />

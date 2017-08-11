@@ -38,7 +38,7 @@ gulp.task('build', (callback) ->
         1. 资源文件处理
         2. app资源文件处理、复制
     ###
-    runSequence(['assetsJs', 'assetsCss', 'assetsFonts'], ['appJs', 'appCss', 'copyHtml'], callback)
+    runSequence(['assetsJs', 'assetsCss', 'assetsFonts'], ['appJs', 'configJs', 'appCss', 'copyHtml'], callback)
 )
 
 # 清空目录
@@ -83,6 +83,12 @@ gulp.task('assetsFonts', ->
 gulp.task('appJs', ->
     gulp.src(assets.appJs)
     .pipe(concat('app.js', {newLine:';\n'}))
+    .pipe(gulp.dest('./dist/assets/js/'))
+)
+
+# app文件处理-config.js
+gulp.task('configJs', ->
+    gulp.src(assets.configJs)
     .pipe(gulp.dest('./dist/assets/js/'))
 )
 
